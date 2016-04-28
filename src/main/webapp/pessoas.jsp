@@ -14,7 +14,7 @@
 
     <div class="well clearfix">
 
-        <form action='' method='post' id="formBuscaPessoas" >
+        <form action='' method='post' id="formBuscaPessoas" class="container-fluid row">
             <div class="form-group">
                 <div class="col-sm-4">
                     <input type="text" class="form-control" placeholder="Digite aqui um nome a ser buscado" name="nomeBuscado" id="nomePessoaBuscada">

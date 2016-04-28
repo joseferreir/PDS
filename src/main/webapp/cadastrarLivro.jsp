@@ -118,6 +118,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="dist/js/jquery-2.1.4.min.js"></script>
+    <script src="dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="dist/js/moment.js"></script>
     <script type="text/javascript" src="dist/js/datepicker/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="dist/js/datepicker/bootstrap-datepicker.pt-BR.min.js"></script>
@@ -133,7 +134,6 @@
                 reader.onload = function (e) {
                     $('#blah').attr('src', e.target.result);
                 }
-
                 reader.readAsDataURL(input.files[0]);
             }
         }
@@ -141,10 +141,6 @@
         $("#imgInp").change(function () {
             readURL(this);
         });
-
-
-
-
     </script>
 </body> 
 </html>
