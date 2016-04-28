@@ -12,23 +12,23 @@
 
 <div class="container-fluid" style="padding: 30px">
 
-    <div class="well">
+    <div class="well clearfix">
 
-        <form action='' method='post' id="formBuscaPessoas">
+        <form action='' method='post' id="formBuscaPessoas" >
             <div class="form-group">
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="Digite aqui um nome a ser buscado" name="nomeBuscado">
+                    <input type="text" class="form-control" placeholder="Digite aqui um nome a ser buscado" name="nomeBuscado" id="nomePessoaBuscada">
                 </div>
-<!--                <div class="col-sm-2">
-                    <select class="form-control">
-                        <option>Todos os campos</option>
-                        <option>Nome</option>
-                        <option>Email</option>
-                    </select>
-                </div>	-->
+                <!--                <div class="col-sm-2">
+                                    <select class="form-control">
+                                        <option>Todos os campos</option>
+                                        <option>Nome</option>
+                                        <option>Email</option>
+                                    </select>
+                                </div>	-->
 
             </div>
-            <button type="button" class="btn btn-primary" id="buscaPessoas">Buscar</button>			
+            <!--<button type="button" class="btn btn-primary" id="buscaPessoas">Buscar</button>-->			
         </form>
 
 
@@ -37,15 +37,16 @@
     <div id="pessoas" class="container-fluid">
         <%
             List<Usuario> todosUsuarios = new BuscaUsuarioBo().buscarTodos();
-            AmizadeBo amizadeBo = new AmizadeBo();
-            Usuario usuarioSessao = (Usuario) session.getAttribute("usuario");
-
-            pageContext.setAttribute("usuarioSessao", session.getAttribute("usuario"));
             pageContext.setAttribute("usuarios", todosUsuarios);
-            pageContext.setAttribute("amizadesBo", amizadeBo);
-        %>
+            %>
 
-        <div id="pessoasContainer">
+        <div id="pessoasContainer" class="col-md-3">
+            <%
+                Usuario usuarioSessao = (Usuario) session.getAttribute("usuario");
+                pageContext.setAttribute("usuarioSessao", session.getAttribute("usuario"));
+                AmizadeBo amizadeBo = new AmizadeBo();
+                pageContext.setAttribute("amizadesBo", amizadeBo);
+            %>
             <c:forEach var="user" items="${usuarios}">
                 <c:if test="${usuario.id ne user.id}">
                     <div class="media">
@@ -76,26 +77,5 @@
                 </c:if>
             </c:forEach>
         </div>
-
-        <script type="text/javascript">
-////            $(document).ready(function () {
-//                function aceitarAmizade(idAmigo)
-//                {
-//                    var user = idAmigo;
-//
-//                    $.ajax({
-//                        type: "POST",
-//                        url: "ServletAceitarAmizade",
-//                        data: {"idSolicitado": idAmigo},
-//                        success: function (data) {
-//                            if (data == 'True') {
-//                                   $(location).attr('href', 'home#pessoas');
-//                            }
-//                        }
-//                    });
-//                }
-//            });
-
-        </script>
     </div>
 </div>

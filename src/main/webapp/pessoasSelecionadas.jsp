@@ -13,11 +13,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
-    AmizadeBo amizadeBo = new AmizadeBo();
-    Usuario usuarioSessao = (Usuario) session.getAttribute("usuario");
-
-    pageContext.setAttribute("usuarioSessao", session.getAttribute("usuario"));
-    pageContext.setAttribute("amizadesBo", amizadeBo);
+                Usuario usuarioSessao = (Usuario) session.getAttribute("usuario");
+                pageContext.setAttribute("usuarioSessao", session.getAttribute("usuario"));
+                AmizadeBo amizadeBo = new AmizadeBo();
+                pageContext.setAttribute("amizadesBo", amizadeBo);
 %>
 <c:forEach var="user" items="${usuarios}">
     <c:if test="${usuario.id ne user.id}">
@@ -48,6 +47,3 @@
 
     </c:if>
 </c:forEach>
-
-<script src="./dist/js/funcoesBusca.js"></script>
-<script src="./dist/js/fitNomeLivro.js"></script>

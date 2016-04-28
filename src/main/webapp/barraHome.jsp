@@ -11,11 +11,9 @@
 <%@page import="br.edu.ifpb.sislivros.entidades.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    
     Usuario usuario = usuario = (Usuario) session.getAttribute("usuario");;
     List<Amizade> solicitacoes = new SolicitacoesAmizadeBo().buscarSolicitacoes(usuario.getId());
-    pageContext.setAttribute("solicitacoes", solicitacoes);
-    
+    pageContext.setAttribute("solicitacoes", solicitacoes);  
 %>
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
     <div class="container">

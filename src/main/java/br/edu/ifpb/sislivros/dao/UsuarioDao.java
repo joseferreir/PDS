@@ -221,9 +221,24 @@ public class UsuarioDao implements UsuarioDaoIF {
     
     @Override
     public List<Usuario> buscarPorNome(String nome) {
-        operacao = "SELECT * FROM Usuario WHERE nomeCompleto ilike '%" + nome + "%'";
+        
+        List<Usuario> lista = new ArrayList<>();
 
-        return buscarUser(operacao);
+        try {
+            conn = new Conexao();
+            String consulta = "SELECT * FROM Usuario WHERE nomeCompleto ilike '%" + nome + "%'";
+            PreparedStatement ps = conn.getConnection().prepareStatement(consulta);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                lista.add(montarUsuario(rs));
+            }
+        } catch (SQLException | IOException | ClassNotFoundException ex) {
+            Logger.getLogger(UsuarioDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return lista;
     }
 
     @Override
