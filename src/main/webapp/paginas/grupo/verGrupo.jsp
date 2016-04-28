@@ -141,7 +141,11 @@
 
 
                         <c:forEach var="participante" items="${participantes}">
-                            <a href="verPerfil?id=${participante.id}"><h5 class="media-heading"><strong> <img src="${pageContext.request.contextPath}/${participante.foto}" style="width: 30px; height:30px; object-fit: cover">  ${participante.nome}
+                            <style type="text/css">
+                                a {text-decoration: none;}
+                                a:hover {text-decoration: none;}
+                            </style>
+                            <a href="${pageContext.request.contextPath}/verPerfil?id=${participante.id}"><h5 class="media-heading"><strong> <img src="${pageContext.request.contextPath}/${participante.foto}" style="width: 30px; height:30px; object-fit: cover">  ${participante.nome}
                                     </strong></h5></a>
                             <br>
 

@@ -13,10 +13,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
-                Usuario usuarioSessao = (Usuario) session.getAttribute("usuario");
-                pageContext.setAttribute("usuarioSessao", session.getAttribute("usuario"));
-                AmizadeBo amizadeBo = new AmizadeBo();
-                pageContext.setAttribute("amizadesBo", amizadeBo);
+    Usuario usuarioSessao = (Usuario) session.getAttribute("usuario");
+    pageContext.setAttribute("usuarioSessao", session.getAttribute("usuario"));
+    AmizadeBo amizadeBo = new AmizadeBo();
+    pageContext.setAttribute("amizadesBo", amizadeBo);
 %>
 <c:forEach var="user" items="${usuarios}">
     <c:if test="${usuario.id ne user.id}">
@@ -25,7 +25,7 @@
                 <img src="${user.foto}" class="media-object" style="width: 30px; height:30px; object-fit: cover">
             </div>
             <div class="media-body">
-                <a href="verPerfil?id=${user.id}"><h5 class="media-heading"><strong>${user.nome}</strong></h5></a>
+                <a href="${pageContext.request.contextPath}/verPerfil?id=${user.id}"><h5 class="media-heading"><strong>${user.nome}</strong></h5></a>
                             <c:choose>
                                 <c:when test="${amizadesBo.saoAmigos(user.getId(), usuarioSessao.getId()) eq true}">
                         <btn class="btn btn-success btn-sm"> Meu amigo</btn>
@@ -44,6 +44,6 @@
                 </c:choose>
             </div>
         </div>
-
+        <hr>
     </c:if>
 </c:forEach>

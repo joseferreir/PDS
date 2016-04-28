@@ -38,7 +38,7 @@
         <%
             List<Usuario> todosUsuarios = new BuscaUsuarioBo().buscarTodos();
             pageContext.setAttribute("usuarios", todosUsuarios);
-            %>
+        %>
 
         <div id="pessoasContainer" class="col-md-3">
             <%
@@ -73,7 +73,7 @@
                             </c:choose>
                         </div>
                     </div>
-
+                    <hr>
                 </c:if>
             </c:forEach>
         </div>

@@ -56,17 +56,23 @@
                 <div role="tabpanel" class="tab-pane" id="grupos" style="min-height:550px">
                     <%@ include file="grupos.jsp"%>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="recomendacoes" style="min-height:550px">
+                <div role="tabpanel" class="tab-pane col-md-8 col-md-offset-2" id="recomendacoes" style="min-height:550px">
                     <div class="container-fluid" style="padding: 30px">
-                        <%                            
-                            
-                            if (usuario != null) {
+                        <%                            if (usuario != null) {
                                 List<Recomendacao> recomParaMim = new RecomendacaoBuscarBo().buscarDestinario(usuario.getId());
+                                List<Recomendacao> recomMinhas = new RecomendacaoBuscarBo().buscarRemetente(usuario.getId());
+
                                 Collections.sort(recomParaMim, Recomendacao.Comparators.INVERT_SORT);
+                                Collections.sort(recomMinhas, Recomendacao.Comparators.INVERT_SORT);
+
                                 pageContext.setAttribute("recomendacoes", recomParaMim);
+                                pageContext.setAttribute("minhasRecomendacoes", recomMinhas);
                             }
 
                         %>
+                        <c:if test="${!empty recomendacoes}">
+                            <h3>Recomendados Para Mim</h3>
+                        </c:if> 
                         <c:forEach var="r" items="${recomendacoes}">
                             <div class="media">
                                 <div class="media-left media-middle">
@@ -74,8 +80,23 @@
                                 </div>
                                 <div class="media-body media-middle">
                                     <strong><a href='verPerfil?id=${r.remetente.id}'>${r.remetente.nome}</a></strong> recomendou o livro <a href="/sislivros/logged/livro/pre/ver.do?isbn=${r.livro.isbn}">"${r.livro.titulo}"</a> para você, em <ct:FormatadorDataHora dataHora="${r.dataHora}" />.
-
                                 </div>
+                            </div> 
+
+                        </c:forEach>
+                            <hr>
+                        <c:if test="${!empty minhasRecomendacoes}">
+                            <h3 class="text-right">Minhas Recomendações</h3>
+                        </c:if> 
+                        <c:forEach var="r" items="${minhasRecomendacoes}">
+                            <div class="media">
+                                <div class="media-body media-middle media-right">
+                                    <p class="text-right">Você recomendou o livro <a href="/sislivros/logged/livro/pre/ver.do?isbn=${r.livro.isbn}">"${r.livro.titulo}"</a> para <strong><a href='verPerfil?id=${r.destinatario.id}'>${r.destinatario.nome}</a></strong>, em <ct:FormatadorDataHora dataHora="${r.dataHora}" />.</p>
+                                </div>
+                                <div class="media-right media-middle">
+                                    <a href="/sislivros/logged/livro/pre/ver.do?isbn=${r.livro.isbn}"><img class="media-object" src="${r.livro.capa}" alt="capa do livro relacionado ao grupo" style="width:80px; height: 112px;"></a>
+                                </div>
+
                             </div> 
 
                         </c:forEach>
