@@ -11,25 +11,11 @@
 <%@page import="br.edu.ifpb.sislivros.entidades.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    Usuario usuario = null;
-    List<Amizade> solicitacoes = null;
-    if (session != null) {
-
-        usuario = (Usuario) session.getAttribute("usuario");
-        if (usuario != null) {
-            if (usuario == null) {
-//                response.sendRedirect("index");
-            } else {
-
-                solicitacoes = new SolicitacoesAmizadeBo().buscarSolicitacoes(usuario.getId());
-                pageContext.setAttribute("solicitacoes", solicitacoes);
-            }
-        } else {
-//            response.sendRedirect("index");
-        }
-    } else {
-//        response.sendRedirect("index");
-    }
+    
+    Usuario usuario = usuario = (Usuario) session.getAttribute("usuario");;
+    List<Amizade> solicitacoes = new SolicitacoesAmizadeBo().buscarSolicitacoes(usuario.getId());
+    pageContext.setAttribute("solicitacoes", solicitacoes);
+    
 %>
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
     <div class="container">

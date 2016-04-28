@@ -12,8 +12,6 @@ import java.io.StringWriter;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -25,7 +23,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Natarajan
  */
-public class UsuarioLogado implements Filter {
+public class FunctionsNoUserFilter implements Filter {
 
     private static final boolean debug = true;
 
@@ -34,7 +32,7 @@ public class UsuarioLogado implements Filter {
     // configured. 
     private FilterConfig filterConfig = null;
 
-    public UsuarioLogado() {
+    public FunctionsNoUserFilter() {
     }
 
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
