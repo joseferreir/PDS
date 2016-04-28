@@ -36,6 +36,7 @@ function processaBuscaLivros() {
 //        },
         success: function (response) {
             $("#livrosSelecionados").load("pressSelectedBooks.jsp");
+            $('.avLivro').rating('refresh', {disabled: true, showClear: false, showCaption: true});
         }
     });
 

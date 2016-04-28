@@ -115,7 +115,20 @@
         <script src="./dist/js/bootstrap.min.js"></script>
         <script src="./dist/js/funcoesBusca.js"></script>
         <script src="./dist/js/fitNomeLivro.js"></script>
+        <script src="${pageContext.request.contextPath}/dist/stars/js/star-rating.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/dist/stars/js/star-rating_locale_pt-br.js" type="text/javascript"></script>
         <script>
+            
+             $('.avLivro').rating({
+                min: 0,
+                max: 5,
+                step: 1,
+                size: 'xs',
+                showClear: false,
+                displayOnly: true,
+                language: "pt-BR"
+            });
+            
             var url = document.location.toString();
             if (url.match('#')) {
                 $('.nav-tabs a[href=#' + url.split('#')[1] + ']').tab('show');

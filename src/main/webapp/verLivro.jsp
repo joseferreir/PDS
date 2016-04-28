@@ -24,20 +24,20 @@
         <title>SisLivros</title>
         <meta name="description" content="Hello World">
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/bootstrap.min.css">
         <!-- Optional theme -->
-        <link rel="stylesheet" href="dist/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="dist/css/another.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/another.css">
         <!-- Datepicker -->
-        <link rel="stylesheet" href="dist/css/datepicker/bootstrap-datepicker.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/datepicker/bootstrap-datepicker.min.css">
         <!-- Uploader-->
-        <link href="dist/css/uploader/fileinput.css" media="all" rel="stylesheet" type="text/css" >
+        <link href="${pageContext.request.contextPath}/dist/css/uploader/fileinput.css" media="all" rel="stylesheet" type="text/css" >
         <!--Font Awsome-->
-        <link rel="stylesheet" href="./dist/css/font-awesome.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/font-awesome.min.css">
 
         <!--Stars-->
-        <link rel="stylesheet" href="./dist/stars/css/star-rating.min.css" media="all" type="text/css">
-        <link rel="stylesheet" href="./dist/stars/css/theme-krajee-fa.css" media="all" type="text/css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/stars/css/star-rating.min.css" media="all" type="text/css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/stars/css/theme-krajee-fa.css" media="all" type="text/css"/>
     </head>
 
     <body>
@@ -153,7 +153,7 @@
 
                     <div class="panel-body">
                         <div class="col-md-4 text-center">
-                            <img id="capa" src="${livro.capa}" style='width: 200px; height:290px; object-fit: cover' class='avatar img-thumbnail' alt="capa do livro">
+                            <img id="capa" src="${pageContext.request.contextPath}/${livro.capa}" style='width: 200px; height:290px; object-fit: cover' class='avatar img-thumbnail' alt="capa do livro">
                             <input id="avaliacaoTotal" name="avaliacaoTotal" type="text" class="rating" value="${livro.rating}" data-size="xs">
                             <div>
                                 <c:if test="${usuario ne nu && usuario.admin eq true}">
@@ -218,13 +218,13 @@
 
                                 </dl>
                             </c:if>
-<!--                            <dl class="dl-horizontal">
-                                <dt>Avaliação total:</dt>
-                                <div>
-                                    <dd><input id="avaliacaoTotal" name="avaliacaoTotal" type="text" class="rating" value="${livro.rating}" data-size="xs"></dd>
-                                </div>
-
-                            </dl>-->
+                            <!--                            <dl class="dl-horizontal">
+                                                            <dt>Avaliação total:</dt>
+                                                            <div>
+                                                                <dd><input id="avaliacaoTotal" name="avaliacaoTotal" type="text" class="rating" value="${livro.rating}" data-size="xs"></dd>
+                                                            </div>
+                            
+                                                        </dl>-->
 
 
 
@@ -251,6 +251,29 @@
                             <%--</c:if>--%>
                         </div>
                     </div>
+                    <c:if test="${!empty avaliacoesLivro}">
+                        <div class="panel-footer">
+
+                            <h4 class="text-center">Avaliações feitas por usuários</h4>
+                            <table class="table table-striped">
+                                <c:forEach var="av" items="${avaliacoesLivro}">
+                                    <tr><td>
+                                    <div class="media">
+                                        <div class="media-body media-right media-middle">
+                                            <p class="text-right">"${av.comentario}"</p>
+                                            <input class="avUsuarios" dir="rtl" type="text" class="rating rating-loading" value="${av.rating}" data-size="xs" title="">
+                                            <!--<input id="avaliacaoTotal" name="avaliacaoTotal" type="text" class="rating" value="${livro.rating}" data-size="xs">-->
+                                        </div>
+                                        <div class="media-right media-middle">
+                                            <img src="${av.usuario.foto}" class="media-object" style="width: 30px; height:30px; object-fit: cover">
+                                        </div>
+
+                                    </div> 
+                                    <td></tr>
+                                </c:forEach>
+                            </table>
+                        </div>
+                    </c:if>
 
                 </div>
                 <div>
@@ -277,16 +300,18 @@
 
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="dist/js/jquery-2.1.4.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="dist/js/moment.js"></script>
-    <script type="text/javascript" src="dist/js/datepicker/bootstrap-datepicker.min.js"></script>
-    <script type="text/javascript" src="dist/js/datepicker/bootstrap-datepicker.pt-BR.min.js"></script>
-    <script type="text/javascript" src="dist/js/uploader/fileinput.min.js"></script>
-    <script type="text/javascript" src="dist/js/uploader/fileinput_locale_pt-BR.js"></script>
-    <script src="./dist/stars/js/star-rating.js" type="text/javascript"></script>
-    <script src="./dist/stars/js/star-rating_locale_pt-br.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/dist/js/jquery-2.1.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/dist/js/moment.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/dist/js/datepicker/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/dist/js/datepicker/bootstrap-datepicker.pt-BR.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/dist/js/uploader/fileinput.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/dist/js/uploader/fileinput_locale_pt-BR.js"></script>
+    <script src="${pageContext.request.contextPath}/dist/stars/js/star-rating.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/dist/stars/js/star-rating_locale_pt-br.js" type="text/javascript"></script>
     <script>
+        
+        
         $('#novaAvaliacao').rating({
             min: 0,
             max: 5,
@@ -324,6 +349,17 @@
             displayOnly: true,
             language: "pt-BR"
         });
+        
+        $('.avUsuarios').rating({
+            min: 0,
+            max: 5,
+            step: 1,
+            size: 'xs',
+            showClear: false,
+            displayOnly: true,
+            language: "pt-BR"
+        });
+        
 
         $("#editalivro").click(function () {
             var isbn = "${livro.isbn}";  // $(this).closest(${livro.isbn}).children(${livro.isbn}).text();

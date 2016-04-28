@@ -4,12 +4,24 @@
     Author     : Natarajan 
 --%>
 
+<%@page import="br.edu.ifpb.sislivros.model.AvaliarLivroBo"%>
+<%@page import="br.edu.ifpb.sislivros.entidades.Avaliacao"%>
 <%@page import="br.edu.ifpb.sislivros.entidades.Livro"%>
 <%@page import="java.util.List"%>
 <%@page import="br.edu.ifpb.sislivros.model.LivroBuscarBo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" href="dist/css/another.css">
+
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/dist/stars/css/star-rating.min.css" media="all" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/dist/stars/css/theme-krajee-fa.css" media="all" type="text/css"/>
+
+<script src="dist/js/jquery-2.1.4.min.js"></script>
+<script src="dist/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/dist/stars/js/star-rating.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/dist/stars/js/star-rating_locale_pt-br.js" type="text/javascript"></script>
+
 <div class="container-fluid" style='padding: 30px;'>
 
     <div id="barraBuscaLivros" class="well clearfix" >
@@ -67,7 +79,7 @@
             </div>
 
             <div class="container-fluid">
-                
+
                 <div class="row form-group col-sm-6">
                     Ordenar Por:
                     <div class="btn-group" data-toggle="buttons">
@@ -95,9 +107,9 @@
                                             <button id="buscaLivros" type="button" class="btn btn-primary">Buscar</button>
                                         </div>-->
                 </div>
-<!--                <div class="form-group col-sm-6">
-                    <button id="buscaLivros" type="button" class="btn btn-primary">Buscar</button>
-                </div>-->
+                <!--                <div class="form-group col-sm-6">
+                                    <button id="buscaLivros" type="button" class="btn btn-primary">Buscar</button>
+                                </div>-->
 
             </div>
 
@@ -108,9 +120,13 @@
 
     </div>
 
-    <%                            LivroBuscarBo livroBuscarBo = new LivroBuscarBo();
+    <%                            
+        LivroBuscarBo livroBuscarBo = new LivroBuscarBo();
         List<Livro> livrosAmostra = livroBuscarBo.buscarAmostra();
         request.setAttribute("livrosAmostra", livrosAmostra);
+        
+        AvaliarLivroBo boAvaliacao = new AvaliarLivroBo();
+        request.setAttribute("boAvaliacao", boAvaliacao);
     %>
 
     <!--    <div id="snipper" class="clearfix hidden" style="padding: 30px">
@@ -118,17 +134,16 @@
         </div>-->
 
     <div id="livrosSelecionados">
-        <c:forEach var="livro" items="${livrosAmostra}" begin="0" end="3">
+        <c:forEach var="livro" items="${livrosAmostra}" varStatus="tal" begin="0" end="3">
             <div class="col-sm-6 col-md-3">
                 <div class="thumbnail">
-                    <img src="${livro.capa}" alt="capa do livro" style="width:200px; height: 280px;" class='avatar img-thumbnail'>
+                    <a href="/sislivros/logged/livro/pre/ver.do?isbn=${livro.isbn}"><img src="${livro.capa}" alt="capa do livro" style="width:200px; height: 290px;" class='avatar img-thumbnail'></a>
                     <div class="caption text-center">
                         <h4 class="limit">${livro.titulo}</h4>
-                        <!--<p>...</p>-->
-                        <p>
+<!--                        <p>
                             <a href="/sislivros/logged/livro/pre/ver.do?isbn=${livro.isbn}" class="btn btn-primary" role="button">Ver livro</a>
-                            <!--                                        <a href="#" class="btn btn-default" role="button">Button</a>-->
-                        </p>
+                        </p>-->
+                        <input class="avLivro" type="text" class="rating rating-loading" value="${livro.rating}" data-size="xs" title="">
                     </div>
                 </div>
             </div>    
@@ -136,3 +151,16 @@
     </div>
 
 </div>
+<script>
+
+    $('.avLivros').rating({
+        min: 0,
+        max: 5,
+        step: 1,
+        size: 'xs',
+        showClear: false,
+        displayOnly: true,
+        language: "pt-BR"
+    });
+
+</script>

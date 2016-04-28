@@ -11,6 +11,7 @@ import br.edu.ifpb.sislivros.entidades.Livro;
 import br.edu.ifpb.sislivros.entidades.Usuario;
 import br.edu.ifpb.sislivros.factory.DaoFactory;
 import br.edu.ifpb.sislivros.factory.DaoFactoryIF;
+import java.util.List;
 
 /**
  *
@@ -34,6 +35,10 @@ public class AvaliarLivroBo {
     
     public Avaliacao buscarPorId(int idAvalicao){
         return factory.criaAvaliacao().buscarPorId(idAvalicao);
+    }
+    
+    public List<Avaliacao> buscarPorLivro(int idLivro){
+        return factory.criaAvaliacao().buscarPorLivro(idLivro);
     }
     
 }

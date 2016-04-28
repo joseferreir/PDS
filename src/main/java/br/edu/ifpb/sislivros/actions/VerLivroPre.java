@@ -25,6 +25,8 @@ public class VerLivroPre implements Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        AvaliarLivroBo boAvaliacao = new AvaliarLivroBo();
+        
         String isbn = request.getParameter("isbn");
         if (isbn == null) {
             request.getRequestDispatcher("home").forward(request, response);
@@ -32,10 +34,14 @@ public class VerLivroPre implements Action {
         Livro livro = new ControleLivro().buscarPorIsbn(isbn);
         request.getSession().setAttribute("livro", livro);
 
+        List<Avaliacao> avaliacoes = boAvaliacao.buscarPorLivro(livro.getId());
+        request.getSession().setAttribute("avaliacoesLivro", avaliacoes);
+
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
 
         if (usuario != null) {
-            Avaliacao avaliacaoExistente = new AvaliarLivroBo().buscar(usuario, livro);
+            
+            Avaliacao avaliacaoExistente = boAvaliacao.buscar(usuario, livro);
             request.getSession().setAttribute("avaliacao", avaliacaoExistente);
 
             List<Usuario> amigos = new AmizadeBo().buscarAmigos(usuario);
@@ -45,7 +51,9 @@ public class VerLivroPre implements Action {
 
         }
 
-        response.sendRedirect(request.getContextPath() + "/verLivro.jsp?isbn=" + livro.getIsbn());
+//        response.sendRedirect(request.getContextPath() + "/verLivro.jsp?isbn=" + livro.getIsbn());
+        response.sendRedirect(request.getContextPath() + "/verLivro.jsp");
+//        request.getRequestDispatcher("/verLivro.jsp").forward(request, response);
     }
 
 }

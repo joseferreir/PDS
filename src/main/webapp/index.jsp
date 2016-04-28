@@ -18,6 +18,13 @@
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="dist/css/bootstrap-theme.min.css">
+
+        <!--Font Awsome-->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/font-awesome.min.css">
+
+        <!--Stars-->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/stars/css/star-rating.min.css" media="all" type="text/css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/stars/css/theme-krajee-fa.css" media="all" type="text/css"/>
     </head>
 
     <body>
@@ -106,8 +113,21 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="dist/js/jquery-2.1.4.min.js"></script>
         <script src="dist/js/bootstrap.min.js"></script>
-        <script src="dist/js/funcoesBusca.js"></script>
+        <script src="dist/js/funcoesBusca.js"></script>        
+        <script src="${pageContext.request.contextPath}/dist/stars/js/star-rating.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/dist/stars/js/star-rating_locale_pt-br.js" type="text/javascript"></script>
         <script>
+
+            $('.avLivro').rating({
+                min: 0,
+                max: 5,
+                step: 1,
+                size: 'xs',
+                showClear: false,
+                displayOnly: true,
+                language: "pt-BR"
+            });
+
             $(document).ready(function () {
                 $("#modal-login").on("shown.bs.modal", function () {
                     $("#email").focus();
@@ -147,7 +167,7 @@
 //                        dataType: "json",
 //                        contentType: 'application/json',
 //                        data: {email: email, password: pwd, action: actionName},
-                        
+
 //                        data: {"email": email, "password": pwd, "action": actionName},
                         data: {"email": email, "password": pwd},
                         success: function (response) {
@@ -160,14 +180,14 @@
                     });
                 });
 
-                
+
                 //função para quando pressiona ENTER dentro do input da senha ou login 
                 $('#email').keypress(function (e) {
                     if (e.which === 13) { // se digitar um enter nesse componente (password)
                         $('#btnEntrar').click();
                     }
                 });
-                
+
                 $('#password').keypress(function (e) {
                     if (e.which === 13) { // se digitar um enter nesse componente (password)
                         $('#btnEntrar').click();
