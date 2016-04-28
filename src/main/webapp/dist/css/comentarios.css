@@ -1,0 +1,185 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28/03/2016, 01:30:58
+    Author     : Natarajan 
+*/
+
+
+.timeline-messages, .msg-time-chat {
+    position: relative;
+    margin: 8px 0;
+}
+
+.msg-time-chat:first-child {
+    padding-top: 0;
+}
+.msg-time-chat {
+    overflow: hidden;
+    padding: 8px 0;
+}
+.message-img {
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    float: left;
+    margin-right: 30px;
+    overflow: hidden;
+}
+.message-img img {
+    display: block;
+    height: 44px;
+    width: 44px;
+}
+img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+.message-body-right {
+    margin-left:25px;
+}
+.message-body-left {
+    margin-right:55px;
+}
+.msg-time-chat .text {
+    background: #fbfbfb;
+    border: 1px solid #E5E5E5;
+    padding: 10px;
+}
+.msg-time-chat .attribution {
+    color: #666666;
+    font-size: 11px;
+    margin: 0px 0 5px;
+}
+.msg-time-chat p {
+    margin: 0;
+}
+.chat-form {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #eee;
+    clear: both;
+}
+.chat-form .input-cont {
+    margin-right: 55px;
+}
+.chat-form .input-cont input {
+    border: 1px solid #ddd;
+    width: 94%;
+    margin-top: 0;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+}
+.chat-form .btn-cont {
+    margin-top: -38px;
+    position: relative;
+    float: right;
+}
+.chat-form .btn-cont .btn {
+    border-left: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    margin-top: 8px;
+}
+
+/*Messages layout*/
+.messages {
+    position: relative;
+    list-style: none;
+    margin-left: 0;
+    padding-bottom: 0;
+    margin-bottom: -7px;
+    padding-left: 0;
+}
+.messages li {
+    position: relative;
+    padding: 10px 0 15px 0;
+    width: 100%;
+}
+
+.messages a.avatar {
+    float: left;
+    margin: 0 15px 0 15px; 
+}
+.messages a.avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+.messages li div.message {
+    position: relative;
+    margin-right: 15px;
+    margin-left: 75px;
+    border: 1px solid #d8d8d8;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    background: #FAFAFA; 
+}
+.messages li.user div.message:after {
+    float: left;
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    width: 10px;
+    height: 17px;
+    background: url(../../img/arrow-left.png) no-repeat;
+}
+.messages li div.message .head {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.messages li div.message .head span.name {
+    float: left;
+    color: #999999;
+}
+.messages li div.message .head span.name strong {
+    color: #ED7A53;
+}
+.messages li div.message .head span.time {
+    float: right;
+    font-size: 11px;
+    margin-right: 15px;
+    color: #999999;
+}
+.messages li div.message p {
+}
+
+.messages li.admin a.avatar {
+    float: right;
+}
+.messages li.admin div.message {
+    margin-left: 15px;
+    margin-right: 75px;
+}
+.messages li.admin div.message .head span.name {
+    float: right;
+}
+.messages li.admin div.message .head span.time {
+    float: left;
+    margin-right: 15px;
+}
+
+.messages li.admin div.message:after {
+    float: left;
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    width: 10px;
+    height: 17px;
+    background: url(../img/arrow-right.png) no-repeat;
+}

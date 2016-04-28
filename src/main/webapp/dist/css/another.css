@@ -1,0 +1,104 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27/02/2016, 08:45:47
+    Author     : Natarajan 
+*/
+
+.footer-color-black,
+.footer-transparent {
+    background-color: rgba(30, 30, 30, 0.97);
+    bottom: 0;
+    color: #DDDDDD;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+
+}
+
+.breadcrumb {
+    text-align: center;
+    background-color: transparent;
+    font-size: 1.2em
+}
+
+.breadcrumb > li + li:before {
+    color: #CCCCCC;
+    content: "| ";
+    padding: 0 5px;
+}
+
+/*.my-navbar-header {
+    min-height: 55px;
+}*/
+
+ul.message-dropdown {
+    padding: 0;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+li.message-preview {
+    width: 275px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+li.message-preview>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+
+.kv-avatar .file-preview-frame,.kv-avatar .file-preview-frame:hover {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    /*max-width: 200px;*/
+    /*max-height: 250px;*/
+    text-align: center;
+    object-fit: cover;
+}
+.kv-avatar .file-input {
+    display: table-cell;
+    max-width: 200px;
+    max-height: 450px;
+    object-fit: cover;
+}
+
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.btn.active, .btn:active {
+    
+    /*background-color: #A3CCF4;*/
+    /*background-color: #B1CEF4*/
+    /*background-color:#BFCAFA*/
+    /*background-color:#3E99E4*/
+}
+
+#formBusca{
+    margin-bottom: 0;
+}

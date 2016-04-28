@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>SisLivros</title>
+        <meta name="description" content="Hello World">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="./dist/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="./dist/css/bootstrap-theme.min.css" type="text/css">
+
+        <!-- Datepicker -->
+        <link rel="stylesheet" href="./dist/css/datepicker/bootstrap-datepicker.min.css">
+
+    </head>
+
+    <body>
+
+        <header>
+            <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="index" class="navbar-brand">SisLivros</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="example">
+                        <form action="" class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Busque livros aqui">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </form>
+                    </div>
+
+
+                </div>
+            </nav>
+            <br><br><br>
+        </header>
+
+        <div class="container">
+            <div class="jumbotron" style="background-image: url('img/biblioteca31.jpg'); color: white;">
+                <div class="container">
+                    <div class="row text-center">
+                        <h1>Fazendo o seu cadastro</h1>
+                        <h3>Também não gostamos muito de formulários. Prometemos que vai ser rápido.</h3>
+                    </div>
+                </div> 
+            </div> 
+        </div>
+
+        <div class="container" style="width:70%">
+            <div class="row">
+
+                <div class="col-md-8 col-md-push-2 well">
+                    <form action="cadastro" id="formulario_cadastro" method="post">
+                        <div class="form-group has-feedback">
+                            <label for="element-1" class="control-label">Nome Completo</label>
+                            <input type="text" id="nome" class="form-control" name="nome" placeholder="Digite seu nome" pattern="[A-Za-zÀ-ú0-9 ]+" title="Nome não pode conter caracteres especiais (% - $ _ # @, por exemplo)." required>
+                            <!--<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>--> 
+                            <p class="help-block hidden"></p>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label for="element-2" class="control-label">Apelido</label>
+                            <input type="text" id="apelido" class="form-control" name="apelido" placeholder="Escolha um apelido" required>
+                            <!--<span class="glyphicon glyphicon-remove form-control-feedback"></span>-->
+                            <p class="help-block hidden"></p>
+
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label for="element-3" class="control-label">Data de Nascimento</label>
+
+                            <div class="input-group date col-md-5 col-sm-5" id="datepicker1" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                                <input type="text" class="form-control" id="dataNascimento" name="dataNascimento" placeholder="dd/mm/aaaa">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                            <p class="help-block hidden"></p>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label for="element-4" class="control-label">Cidade</label>
+                            <input type="text" id="cidade" class="form-control" name="cidade" placeholder="Informe sua cidade" pattern="[A-Za-z0-9 ]+" title="Cidade não deve ter caracteres especiais" required>
+                            <!-- 
+                            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                            <p class="help-block">Enter the password with a Captital letter included</p>
+                            -->
+                            <p class="help-block"></p>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label for="estado" class="control-label">Estado</label>
+                            <!-- 
+                            <input type="text" id="element-5" class="form-control">
+                            
+                            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                            <p class="help-block">Enter the password with a Captital letter included</p>
+                            -->
+                            <select class="form-control" id="estado" name="estado"> 
+
+                                <option value="ac">Acre</option> 
+                                <option value="al">Alagoas</option> 
+                                <option value="am">Amazonas</option> 
+                                <option value="ap">Amapá</option> 
+                                <option value="ba">Bahia</option> 
+                                <option value="ce">Ceará</option> 
+                                <option value="df">Distrito Federal</option> 
+                                <option value="es">Espírito Santo</option> 
+                                <option value="go">Goiás</option> 
+                                <option value="ma">Maranhão</option> 
+                                <option value="mt">Mato Grosso</option> 
+                                <option value="ms">Mato Grosso do Sul</option> 
+                                <option value="mg">Minas Gerais</option> 
+                                <option value="pa">Pará</option> 
+                                <option value="pb">Paraíba</option> 
+                                <option value="pr">Paraná</option> 
+                                <option value="pe">Pernambuco</option> 
+                                <option value="pi">Piauí</option> 
+                                <option value="rj">Rio de Janeiro</option> 
+                                <option value="rn">Rio Grande do Norte</option> 
+                                <option value="ro">Rondônia</option> 
+                                <option value="rs">Rio Grande do Sul</option> 
+                                <option value="rr">Roraima</option> 
+                                <option value="sc">Santa Catarina</option> 
+                                <option value="se">Sergipe</option> 
+                                <option value="sp">São Paulo</option> 
+                                <option value="to">Tocantins</option> 
+                            </select>
+
+                        </div>
+
+                        <div class="container row" style="width: 80%">
+                            <div class="form-group has-feedback">
+                                <label for="element-7" class="control-label">Email</label>
+                                <input type="text" id="email" class="form-control" name="email" 
+                                       placeholder="Informe seu email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Digite um email válido" required>
+                                <!-- 
+                                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                                <p class="help-block">Enter the password with a Captital letter included</p>
+                                -->
+                                <p class="help-block hidden"></p>
+                            </div>
+
+                            <div class="form-group has-feedback">
+                                <label for="element-8" class="control-label">Senha</label>
+                                <input type="password" id="senha" class="form-control" name="senha" placeholder="Escolha sua senha" required>
+                                <!--<span class="glyphicon glyphicon-ok form-control-feedback"></span>-->
+                                <p class="help-block hidden"></p>
+
+                            </div>
+                            <div id="alertaErroLogin" class="alert alert-danger alert-dismissible" role="alert" hidden></div>
+
+
+                            <!--<button type="submit" class="btn btn-primary" form="formulario_cadastro">Enviar</button>-->
+
+
+                    </form>
+                    <!--<a class="btn btn-primary" type="submit" form="formulario_cadastro">Enviar</a>-->
+                    <a id="btnEnviar" form="formulario_cadastro" type="submit" class="btn btn-primary">Enviar</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="dist/js/jquery-2.1.4.min.js"></script>
+        <script src="dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="dist/js/moment.js"></script>
+        <script type="text/javascript" src="dist/js/datepicker/bootstrap-datepicker.min.js"></script>
+        <script type="text/javascript" src="dist/js/datepicker/bootstrap-datepicker.pt-BR.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#datepicker1').datepicker({
+                    pickTime: false,
+                    format: 'dd/mm/yyyy',
+                    language: "pt-BR"
+                });
+            });
+            
+            function processaRequest() {
+                event.preventDefault();
+                
+                $('#alertaErroLogin').hide();
+
+                var dados = $("#formulario_cadastro").serialize();
+                
+//                var data = dados+"&action=CadastrarUser";
+                var data = dados;
+                
+                $.post("/sislivros/cadastrar.do", data, function (responseJson) {                 // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response JSON...
+                                        
+                    var resultado = responseJson.passou;
+                    $('p').addClass("hidden");
+                    $("div").removeClass("has-error");
+                    
+                    if (resultado === "true") {
+                        $(location).attr('href', 'home');
+                    } else {
+                        $.each(responseJson, function (key, value) {
+
+                            if (key === "dataNascimento") {
+                                $("#" + key).parent("div").next("p").html(value).removeClass("hidden");
+                            } else if (key === "emailJaExiste") {
+                                $('#alertaErroLogin').show(250).text(value);
+                            } else {
+                                $("#" + key).next("p").html(value).removeClass("hidden");
+                            }
+
+                            $("#" + key).parent("div").addClass("has-error");
+
+                        });
+                    }
+                });
+
+            }
+            
+            $('#btnEnviar').click(processaRequest);
+
+        </script>
+    </body> 
+</html>
