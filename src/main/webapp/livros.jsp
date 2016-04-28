@@ -17,7 +17,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/stars/css/star-rating.min.css" media="all" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/stars/css/theme-krajee-fa.css" media="all" type="text/css"/>
 
-<script src="dist/js/jquery-2.1.4.min.js"></script>
 <script src="dist/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/dist/stars/js/star-rating.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/dist/stars/js/star-rating_locale_pt-br.js" type="text/javascript"></script>

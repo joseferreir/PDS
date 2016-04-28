@@ -5,11 +5,13 @@
  */
 package br.edu.ifpb.sislivros.entidades;
 
+import java.io.Serializable;
+
 /**
  *
  * @author José
  */
-public class Avaliacao {
+public class Avaliacao implements Serializable{
 
     private int id;
     private Usuario usuario;
