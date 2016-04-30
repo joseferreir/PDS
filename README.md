@@ -2,7 +2,7 @@
 
 # Projeto da disciplina PSD - 2015.2
 
-*Este repositório tornou-se público em 30/04/2016 e representa o release final apresentado no projeto da disciplina Programação de Sites Dinâmicos. 
+*Este repositório tornou-se público em 30/04/2016 e representa o release final apresentado no projeto da disciplina Programação de Sites Dinâmicos 2015.2 do IFPB-Campus Cajazeiras. 
 É certo que algumas melhorias poderiam ter sido implementadas antes de sua entrega e o projeto também pode conter erros, no entanto o repositório está disponível agora para fins de consultas didáticas.*
 
 
